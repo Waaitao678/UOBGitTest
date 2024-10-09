@@ -4,7 +4,7 @@ on:
    branches: [main]
 jobs:
  builds:
-   #Create VM with ubuntu OS
+   # Create VM with ubuntu OS
    runs-on: ubuntu-20.04
    steps:
    # 1st step to say hello
@@ -14,5 +14,6 @@ jobs:
 
     - name: Checkout my codes
       uses: actions/checkout@v4
+    - name: print content of repo
       run: |
         ls
