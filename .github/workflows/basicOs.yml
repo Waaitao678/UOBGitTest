@@ -12,3 +12,7 @@ jobs:
       run:
        echo "Hello there"
 
+    - name: Checkout my codes
+      uses: actions/checkout@v4
+      run: |
+        ls
