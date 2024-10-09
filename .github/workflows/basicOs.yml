@@ -46,7 +46,7 @@ jobs:
       with:
        repository: Waaitao678/UOBHidden
        path: hiddenfolder
-       token: ${{secrets.UOBSECRET}}
+       token: ${{secrets.SECRETUOB}}
 
      #this prints out a hidden file
     - name: print out hidden
