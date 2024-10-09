@@ -44,7 +44,7 @@ jobs:
     - name: Checkout hidden repo
       uses: actions/checkout@v4
       with:
-       repository: Waaitao678/UOBHidden
+       repository: lowkh/UOBHidden
        token: ${{ secrets.SECRETUOB }}
 
      #this prints out a hidden file
