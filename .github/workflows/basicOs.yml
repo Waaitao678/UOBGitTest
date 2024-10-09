@@ -1,56 +1,57 @@
 name: My Workflow File
 on:
- pull_request:
- push:
-   branches: [main]
-   
+  pull_request:
+  push:
+    branches: [main]
+
 jobs:
- builds:
-   # Create VM with ubuntu OS
-   runs-on: ubuntu-20.04
-   steps:
-   # 1st step to say hello
-    - name: greeting steps
-      run:
-       echo "Hello there"
+  builds:
+    # Create VM with Ubuntu OS
+    runs-on: ubuntu-20.04
+    steps:
+      # 1st step to say hello
+      - name: greeting steps
+        run: echo "Hello there"
 
-    - name: Checkout my codes
-      uses: actions/checkout@v4
-    - name: print content of repo
-      run: |
-        ls
+      - name: Checkout my codes
+        uses: actions/checkout@v4
+        
+      - name: print content of repo
+        run: |
+          ls
 
-   # This is where I install python
-    - name: Installing Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10' 
-    - name: check version of python
-      run: |
-        python --version
+      # This is where I install Python
+      - name: Installing Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
 
-   # Installing dependencies if any
-    - name: install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt]; then pip install -r requirements.txt; fi
-        pip install pytest
+      - name: check version of python
+        run: |
+          python --version
 
-    - name: Testing with pytest
-      run: |
-         pytest
+      # Installing dependencies if any
+      - name: install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest
 
-     # this is where we access the hidden repo
-    - name: Checkout hidden repo
-      uses: actions/checkout@v4
-      with:
-       repository: Waaitao678/UOBHidden
-       path: hiddenfolder
-       token: ${{ secrets.SECRETUOB }}
+      - name: Testing with pytest
+        run: |
+          pytest
 
-     #this prints out a hidden file
-    - name: print out hidden
-      run: |
-       ls
-       cd hiddenfolder
-       ls
+      # This is where we access the hidden repo
+      - name: Checkout hidden repo
+        uses: actions/checkout@v2
+        with:
+          repository: Waaitao678/UOBHidden
+          path: hiddenfolder
+          token: ${{ secrets.SECRETUOB }}
+
+      # This prints out a hidden file
+      - name: print out hidden
+        run: |
+          ls -a
+          cd hiddenfolder
+          ls -a
