@@ -60,7 +60,7 @@ jobs:
         if: always()
         with:
           files: |
-            *.xml
+            report.xml
     
 
         
