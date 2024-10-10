@@ -41,20 +41,20 @@ jobs:
         run: |
           pytest
 
-      # This is where we access the hidden repo
-      - name: Checkout hidden repo
-        uses: actions/checkout@v2
-        with:
-          repository: Waaitao678/UOBHidden
-          path: hiddenfolder
-          token: ${{ secrets.SECRETUOB }}
+      # # This is where we access the hidden repo
+      # - name: Checkout hidden repo
+      #   uses: actions/checkout@v2
+      #   with:
+      #     repository: Waaitao678/UOBHidden
+      #     path: hiddenfolder
+      #     token: ${{ secrets.SECRETUOB }}
 
-      # This prints out a hidden file
-      - name: print out hidden
-        run: |
-          ls -a
-          cd hiddenfolder
-          ls -a
+      # # This prints out a hidden file
+      # - name: print out hidden
+      #   run: |
+      #     ls -a
+      #     cd hiddenfolder
+      #     ls -a
 
       - name: discord
         uses: sebastianpopp/discord-action@releases/v2
@@ -65,5 +65,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.SECRETUOB}}
+          github_token: ${{ secrets.SECRETUOB }}
           publish_dir: ./   #Publish the root directory (where index.html is located)
