@@ -67,3 +67,10 @@ jobs:
         with:
           github_token: ${{ secrets.SECRETUOB }}
           publish_dir: ./   #Publish the root directory (where index.html is located)
+
+      - if: ${{ success() }}
+        name: discord
+        uses: sebastianpopp/discord-action@releases/v2
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          message: ${{ github.repository }} has duck rice deployed.
